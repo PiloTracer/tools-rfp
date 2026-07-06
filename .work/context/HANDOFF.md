@@ -54,6 +54,8 @@ End with **`@session-control close`** (add `commit` / `commit push` only when re
 | Date | Session | Artifacts |
 |------|---------|-----------|
 | YYYY-MM-DD | | |
+| 2025-07-17 | @session-control commit push | Initial bootstrap commit (`67de44d`) pushed to main |
+| 2025-07-17 | @ai-director policy | Saved memory: `commit-push-only-on-explicit` (high priority) |
 
 ---
 
@@ -70,3 +72,15 @@ End with **`@session-control close`** (add `commit` / `commit push` only when re
 - **Triggered:** no
 - **Result:** -
 - **Notes:** -
+
+## Latest action (@ai-director)
+**Date:** 2025-07-17
+**Request:** "make sure commit and push are done only on operator's explicit request"
+**Classified bucket:** policy reinforcement
+**Routing confidence:** high
+**Executed:**
+1. `remember` feedback → saved high-priority project memory `commit-push-only-on-explicit`
+2. Reviewed existing protections: `.cursorrules` (`NEVER git commit/push unless user requests it`) and `session-control/skill.md` hard rules already enforce this
+**User correction:** none
+**Blockers:** none
+**Next recommended:** @session-control start when ready to begin work
