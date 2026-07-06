@@ -29,7 +29,7 @@
 | Path | Purpose |
 |------|---------|
 | `backend/` | Application source (FastAPI) |
-| `backend/migrations/` | Idempotent SQL migrations (Alembic) |
+| `backend/migrations/` | Idempotent SQL migrations (`NNNN_description.sql`) |
 | `backend/tests/` | Test suite |
 | `worker/` | Celery worker: parsing, embeddings, LLM |
 | `frontend/` | UI (React + Vite) |

@@ -6,7 +6,7 @@
 
 **Updated:** 2025-07-17
 
-**Repository state:** Greenfield — foundation P0–P6 complete. **Plan-master-ready: 2025-07-17** (S4: 10/10 pass). All foundation artifacts created: docs 01–04, 7 ADRs, 4 standards, 1 SPEC, registries, Docker Compose stack, README.
+**Repository state:** Greenfield — foundation P0–P6 complete. **Plan-master-ready: 2025-07-17** (S4: 10/10 pass). All foundation artifacts created: docs 01–04, 7 ADRs, 7 standards, 1 SPEC, registries, Docker Compose stack, README.
 
 **Recommended pick-up file:** `.work/plans/NEXT.md`
 

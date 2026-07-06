@@ -111,13 +111,13 @@ services:
 
   dashboard:
     build:
-      context: frontend
-      dockerfile: ../Dockerfile.dashboard
+      context: .
+      dockerfile: Dockerfile.dashboard
     restart: unless-stopped
     depends_on:
       - api
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:80/"]
+      test: ["CMD-SHELL", "wget -qO- http://localhost:80/ || exit 1"]
       interval: 30s
       timeout: 10s
       retries: 3

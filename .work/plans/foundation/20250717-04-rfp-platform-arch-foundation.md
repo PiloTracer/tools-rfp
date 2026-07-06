@@ -157,14 +157,13 @@ Referenced in [UNKNOWNS.md](../../UNKNOWNS.md):
 
 | # | Decision | Status | Reference |
 |---|----------|--------|-----------|
-| 001 | Python + FastAPI | Proposed | DOCS_TECH_STACK.md |
-| 002 | PostgreSQL + pgvector | Proposed | DOCS_TECH_STACK.md |
-| 003 | React + Vite frontend | Proposed | DOCS_TECH_STACK.md |
-| 004 | Multi-tenant RLS | Proposed | Doc 01 §9 |
-| 005 | LiteLLM multi-provider | Proposed | Doc 01 §8 |
-| 006 | Docker Compose deployment | Proposed | DOCS_TECH_STACK.md |
-
-**Note:** These become formal ADRs in Phase 2.
+| 001 | Python + FastAPI | Decided | ADR-001, DOCS_TECH_STACK.md |
+| 002 | PostgreSQL + pgvector | Decided | ADR-002, DOCS_TECH_STACK.md |
+| 003 | React + Vite frontend | Decided | ADR-003, DOCS_TECH_STACK.md |
+| 004 | Multi-tenant RLS | Decided | ADR-004, Doc 01 §9 |
+| 005 | LiteLLM multi-provider | Decided | ADR-005, Doc 01 §8 |
+| 006 | Docker Compose deployment | Decided | ADR-006, DOCS_TECH_STACK.md |
+| 007 | UI/Document locales | Decided | ADR-007 |
 
 ## 11. Foundation gate readiness
 
@@ -172,7 +171,7 @@ Referenced in [UNKNOWNS.md](../../UNKNOWNS.md):
 
 - [x] Scope doc (01) exists; uses **architecture foundation** wording
 - [x] Architecture foundation doc (04) exists with bounded contexts + dependency direction
-- [ ] 01↔02↔03↔04 cross-linked
-- [ ] Integration manifest + mirror (if applicable)
+- [x] 01↔02↔03↔04 cross-linked
+- [x] Integration manifest + mirror (see `.ai/docs/integration/MANIFEST.txt`)
 - [x] Open questions explicit in `UNKNOWNS.md`
 - [x] Initial risks in `RISK_REGISTRY.md`
