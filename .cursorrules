@@ -102,6 +102,7 @@ AGENT_OS_SOURCE=/mnt/work/Projects/.ai
 | `{FEATURE_SPEC_ROOT}` | `.work/features/` |
 | `{PROMPTS_ROOT}` | `.work/prompts/` |
 | `{DECISIONS_ROOT}` | `.work/decisions/` |
+| `{DOCS_ROOT}` | `.work/docs/` |
 | `{ITERATION_CARRIER}` | `.work/plans/NEXT.md` |
 | `{MASTER_PLAN}` | `.work/plans/full/*-full-plan.md` (latest **Approved**) |
 | `{HANDOFF}` | `.work/context/HANDOFF.md` |
@@ -136,6 +137,10 @@ Skills live under `.ai/skills/<id>/skill.md` (folder name = id). When a task mat
 
 | Skill | Purpose |
 |-------|---------|
+| deploy-files | Fat-client deploy into target (in-place no-overwrite bootstrap + `update` rules-aware merge) |
+| deploy-basic | Thin-client bootstrap: `.cursorrules` + `.work/` + stack doc only; rest resolves via `AGENT_OS_SOURCE` |
+| deploy-repo | Full repo deploy: clone (git mirror) or archive (snapshot) |
+| project-query-setup | Optional tools-project API key + MCP registration + connectivity test |
 | plan-foundation | P0–P6 orchestration; certify plan-master-ready |
 | plan-master | Master implementation plan; certify implementation-ready |
 | plan-verify | Plan audits: foundation, master, alignment, coverage (code→SPEC), brownfield |
@@ -152,10 +157,6 @@ Skills live under `.ai/skills/<id>/skill.md` (folder name = id). When a task mat
 | concept-run | Run MOD-01…MOD-07 concept prompts |
 | project-bootstrap | Copy `.work/` skeleton, `.cursorrules`, stack doc from templates |
 | docs | Create/manage project docs under `.work/docs/` |
-| deploy-files | Fat-client deploy (vendored): full `.ai/` tree into target; no-overwrite; `update` rules-aware merge |
-| deploy-basic | Thin-client bootstrap / `update`: re-sync `AGENT_OS_SOURCE` + merge local scaffold (skills resolve from source) |
-| deploy-repo | Full repo deploy: clone (git mirror) or archive (snapshot) |
-| project-query-setup | Optional tools-project API key + MCP registration + connectivity test |
 | ai-director | Free-text orchestrator; routes to `.ai` skill chain; skill-gap detection |
 | x-director | Cross-framework orchestrator (`.ai` + `.ai.ui` + `.ai.biz` + `.ai.soc`) |
 
@@ -272,7 +273,7 @@ Use Context7 MCP (`@upstash/context7-mcp`) for version-specific library docs whe
 
 ---
 
-## Documentation layout (`.ai/` vs `.work/`)
+### Documentation layout (`.ai/` vs `.work/`)
 
 - **`.ai/`:** framework-only — skills, concepts, workflow guides, `START_HERE.md`, `PROCESS_ROUTER.md`, `templates/`, plus framework-wide contract/schema docs (e.g. `MASTER_PLAN_STANDARD.md`). **Never created by `@deploy-basic`** (thin-client). Fat-client only via `@deploy-files` / `@project-bootstrap init` when you explicitly vend a local copy. Pointer READMEs only under `.ai/plans/`, `.ai/features/`.
 - **`.work/`:** **all project-specific memory and customization** — plans, SPECs, ADRs, prompts, `HANDOFF.md`, `PROTECTED_SURFACES.json`, binding **`.work/standards/`**, and **`.work/docs/`** (including vendor **`.work/docs/integration/`** cache). Generated filenames use the `YYYYMMDD-` prefix (except `NEXT.md`, `HANDOFF.md`). Always local in **both** fat- and thin-client modes — never resolved from `$AGENT_OS_SOURCE`.
