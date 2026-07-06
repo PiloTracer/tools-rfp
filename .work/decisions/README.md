@@ -1,19 +1,13 @@
-# Architectural Decision Records (ADRs)
+# ADR index — RFP Platform
 
-Project-specific ADRs. Process: `.ai/skills/plan-foundation/skill.md` P2 · pointer: `.ai/decisions/README.md`.
+**Updated:** 2025-07-17
 
-## Conventions
-
-- **Filename:** `YYYYMMDD-NNN-short-slug.md` (3-digit zero-padded NNN)
-- **Status:** `Proposed | Decided | Deferred | Superseded by <ADR id>`
-- **Sections:** Context · Decision · Consequences · Alternatives · References
-- **Never edit** a `Decided` ADR - supersede with a new file
-- Foundation register in `*-04-foundation-architecture.md` §13 must agree; **ADRs win** on conflict
-
-## Index
-
-| ADR | Topic | Status |
-|-----|-------|--------|
-| 001 | — first ADR goes here — | Proposed |
-
-**Template:** `.ai/templates/work/decisions/YYYYMMDD-NNN-slug.md.template`
+| # | Title | Status | Date |
+|---|-------|--------|------|
+| 001 | Python + FastAPI backend | Decided | 2025-07-17 |
+| 002 | PostgreSQL + pgvector database | Decided | 2025-07-17 |
+| 003 | React + Vite frontend | Decided | 2025-07-17 |
+| 004 | Multi-tenant architecture with RLS | Decided | 2025-07-17 |
+| 005 | LiteLLM multi-provider LLM adapter | Decided | 2025-07-17 |
+| 006 | Docker Compose deployment | Decided | 2025-07-17 |
+| 007 | UI/Document locales | Decided | 2025-07-17 |

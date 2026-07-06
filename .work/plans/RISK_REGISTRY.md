@@ -21,6 +21,18 @@ Status: **Open** | **Mitigated** | **Accepted** | **Closed**
 | R13 | Email integration auth tokens expire / OAuth scopes too broad | security | M | M | Token refresh logic; minimal scope requests; rotate-on-error | Open | eng |
 | R14 | 13-feature V1 scope too large for 1–2 month solo/small team timeline | process | H | H | Ruthlessly prioritize P0 features; cut P1; consider phased launch | Open | product |
 
+| R15 | Prompt injection via RFP question text | AI | M | H | System prompt restricts instruction override; human review gate | Mitigated | eng |
+| R16 | RAG produces plausible-sounding but incorrect answer | AI | M | H | Source citations required; confidence threshold flagging; human review gate | Mitigated | eng |
+| R17 | Embedding model produces poor retrievals for domain-specific RFP terminology | AI | M | M | Chunking strategy iteration; U2/U3 investigation needed | Open | eng |
+| R18 | LLM API cost exceeds $5k/mo budget at V1 scale | operational | M | H | Model tiering (cheap for parsing, capable for generation); LiteLLM cost tracking | Mitigated | eng |
+| R19 | Single Celery worker becomes bottleneck during RFP burst | performance | L | M | Acceptable for V1; add worker replica documented as post-V1 scaling path | Open | eng |
+
+| R20 | Frontend bundles grow too large for acceptable load time | technical | L | M | Route-based lazy loading; code-splitting at page level | Mitigated | eng |
+| R21 | Observability gaps obscure production issues | operational | M | M | Per-context metrics defined (observability spec); logging + health checks in V1; alerting deferred | Open | eng |
+
+| R22 | Single Docker host is SPOF for production | operations | L | M | Acceptable for V1 99% uptime; backup + restore documented; post-V1: multi-host orchestration | Accepted | eng |
+| R23 | No zero-downtime deploys in V1 | operations | L | M | Accepted for V1; deploy window documented in ops runbook | Accepted | eng |
+
 ## Review log
 
 | Date | Reviewer | Action |

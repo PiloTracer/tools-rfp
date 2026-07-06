@@ -6,7 +6,7 @@
 
 **Updated:** 2025-07-17
 
-**Repository state:** Greenfield — foundation P0 complete with probe coverage 80% (target 85%). Doc 01 enriched with verbatim intent, bounded contexts, data model, user journeys, constraints. D5/D9 still partial (need ADR + owner decisions).
+**Repository state:** Greenfield — foundation P0–P6 complete. **Plan-master-ready: 2025-07-17** (S4: 10/10 pass). All foundation artifacts created: docs 01–04, 7 ADRs, 4 standards, 1 SPEC, registries, Docker Compose stack, README.
 
 **Recommended pick-up file:** `.work/plans/NEXT.md`
 

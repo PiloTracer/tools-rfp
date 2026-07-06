@@ -24,6 +24,10 @@ Label every entry: **Confirmed** | **Inference** | **Unverified** | **Rejected**
 | A16 | Solo/small team (1–2 devs), tight budget (<$5k/mo), 1–2 month timeline | Confirmed | Probe iter-2 user answer | Aggressive scope — may need cuts |
 | A17 | Scope should prioritize P0 features only (1–7, 9, 10, 13); defer P1 (8, 11, 12) | Inference | Probe iter-2 agent analysis | Based on timeline constraint |
 
+| A18 | English + Spanish i18n sufficient for V1 bilingual teams | Inference | ADR-007 | |
+| A19 | pgvector ANN search is performant enough for <100K KB chunks at V1 | Inference | ADR-002 | |
+| A20 | RAG with LiteLLM multi-provider is the right abstraction for draft generation | Confirmed | ADR-005 | |
+
 ## Rejected
 
 | ID | Assumption | Reason |

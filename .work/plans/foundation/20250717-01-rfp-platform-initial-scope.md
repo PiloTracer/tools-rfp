@@ -3,6 +3,7 @@
 **Product:** RFP Platform
 **Status:** Draft (foundation doc 01)
 **Updated:** 2025-07-17
+**Cross-references:** [doc 02 — Integration](20250717-02-rfp-platform-integration.md) · [doc 03 — Adjacency](20250717-03-rfp-platform-adjacency.md) · [doc 04 — Architecture foundation](20250717-04-rfp-platform-arch-foundation.md)
 
 ---
 
@@ -165,7 +166,23 @@ A self-hosted platform that receives, parses, and analyzes RFP documents, then g
 | A4 | Self-hosted deployment is a purchase criterion for security-conscious buyers | Inference |
 | A5 | AI accuracy + citation transparency builds the trust needed for adoption | Inference |
 
-## 10. Open unknowns
+## 11. Architecture directions (non-prescriptive — architecture foundation in doc 04)
+
+This document captures product scope and intent only. Architecture decisions (bounded contexts, tech stack, deployment, security, data flow) are documented in the **[architecture foundation (doc 04)](20250717-04-rfp-platform-arch-foundation.md)**.
+
+Key architecture reference points from this phase:
+
+| Concern | Direction | Addressed in |
+|---------|-----------|--------------|
+| Bounded contexts | 7 contexts (BC1–BC7) | Doc 04 §2 |
+| Tenancy | Multi-tenant SaaS with RLS | Doc 04 §4 |
+| Stack | Python/FastAPI + React/Vite | Doc 04 §3 + DOCS_TECH_STACK.md |
+| Deployment | Docker Compose | Doc 04 §3 |
+| Integrations | LiteLLM (P0); Email (P1) | Doc 02 |
+
+See also: [Integration foundation (doc 02)](20250717-02-rfp-platform-integration.md) · [Adjacency (doc 03)](20250717-03-rfp-platform-adjacency.md)
+
+## 12. Open unknowns
 
 | # | Unknown | Owner |
 |---|---------|-------|

@@ -15,6 +15,13 @@
 | U9 | V1 scope too large for timeline — which features to cut? | Feature prioritization | product | Open |
 | U10 | Baseline win rate / cost / volume metrics for success measurement | Success criteria | product | Open |
 
+| U11 | Optimal chunk size and overlap for KB entries | RAG pipeline quality | eng | Open |
+| U12 | Embedding model selection (text-embedding-3-small vs ada vs local) | RAG quality, cost | eng | Open |
+| U13 | Confidence scoring formula: pure retrieval overlap or combined with LLM logprobs | Draft quality signals | eng | Open |
+| U14 | Max KB entry count per retrieval query | RAG performance | eng | Open |
+| U15 | Should per-question generation stream results to the UI? | UX design | product | Open |
+| U16 | Accessibility standards (WCAG level) and responsive breakpoints for frontend | UX scope | eng/product | Open |
+
 ## Review log
 
 | Date | Reviewer | Action |

@@ -11,6 +11,12 @@
 | Agent OS bootstrap | `.work/` skeleton, `.cursorrules` from template |
 | Foundation P0 (initial scope) | `.work/plans/foundation/20250717-01-rfp-platform-initial-scope.md` |
 | Foundation probe (2 iterations) | Coverage 80% — D1–D4, D6–D8 confirmed; D5, D9, D10 partial |
+| Foundation P1 (exploration) | Docs 02 (integration), 03 (adjacency), 04 (architecture foundation) created; 01↔02↔03↔04 cross-linked |
+| Foundation P2 (ADRs) | 7 ADRs created (stack, DB, frontend, tenancy, LiteLLM, deploy, locales) |
+| Foundation P3 (SPECs) | CONVENTIONS, FEATURE_STANDARD, DIRECTORY_MAP created; RAG Engine SPEC (BC3 — highest risk) with R1–R8; architecture fitness review passed |
+| Foundation P4 (Cross-cutting) | Threat model (8 threats), data classification (4 levels), observability spec, API style guide created; UX/UI validation: personas + journeys exist (doc 01); accessibility deferred (U16) |
+| Foundation P5 (Infrastructure) | Docker Compose proposal approved → `docker-compose.yml`, `Dockerfile.api`, `Dockerfile.dashboard`, `.env.example` created; sandbox onboarding runbook documented |
+| Foundation P6 (Operations) | README, .gitignore created; P6 gate passed; **Plan-master-ready certified** (S4: 10/10 pass) |
 
 ---
 
@@ -28,9 +34,8 @@
 
 | Priority | Item | Notes |
 |----------|------|-------|
-| **0** | `@plan-foundation continue` | Walk P1–P6 gates: create docs 02–04, ADRs, standards, SPECs |
-| **1** | `@plan-foundation certify plan-master-ready` | After P0–P6 complete (probe at 80%, may pass with waivers) |
-| **2** | `@plan-master greenfield` | Master plan after foundation ready |
+| **0** | `@plan-master greenfield` | Create master implementation plan now that plan-master-ready is certified |
+| **1** | `@plan-master status` | Check implementation-ready status after master plan is Approved |
 
 ---
 
