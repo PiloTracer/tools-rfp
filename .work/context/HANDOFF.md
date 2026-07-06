@@ -53,7 +53,7 @@ End with **`@session-control close`** (add `commit` / `commit push` only when re
 
 | Date | Session | Artifacts |
 |------|---------|-----------|
-| YYYY-MM-DD | | |
+| 2025-07-05 | Bootstrap | Agent OS thin-client scaffold → `.cursorrules`, `.work/`, `DOCS_TECH_STACK.md`, `opencode.json`; git init → commit `061a336` → push to `main` |
 
 ---
 

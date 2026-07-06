@@ -38,7 +38,7 @@
       "type": "local",
       "command": [
         "python3",
-        ".opencode/mcp/project-mcp/mcp_server.py"
+        "/mnt/work/Projects/.ai/.opencode/mcp/project-mcp/mcp_server.py"
       ],
       "enabled": true
     }

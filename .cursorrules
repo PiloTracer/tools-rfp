@@ -51,9 +51,9 @@ Sister frameworks are siblings on disk; `.ai/` is this framework. Paths resolve 
 | Framework | Director | Path | Bootstrap artifact |
 |-----------|----------|------|--------------------|
 | `.ai` (Agent OS) | `@ai-director` | *this directory* | `.ai/skills/README.md` |
-| `.ai.ui` (UI Design OS) | `@ui-director` | REPLACE:AI_UI_PATH (default `../.ai.ui`) | `.ai.ui/skills/README.md` |
-| `.ai.biz` (Business OS) | `@biz-director` | REPLACE:AI_BIZ_PATH (default `../.ai.biz`) | `.ai.biz/skills/README.md` |
-| `.ai.soc` (Social OS) | `@soc-director` | REPLACE:AI_SOC_PATH (default `../.ai.soc`) | `.ai.soc/skills/README.md` |
+| `.ai.ui` (UI Design OS) | `@ui-director` | `/mnt/work/Projects/.ai.ui` | `.ai.ui/skills/README.md` |
+| `.ai.biz` (Business OS) | `@biz-director` | `/mnt/work/Projects/.ai.biz` | `.ai.biz/skills/README.md` |
+| `.ai.soc` (Social OS) | `@soc-director` | `/mnt/work/Projects/.ai.soc` | `.ai.soc/skills/README.md` |
 
 **Path resolution:** (1) use a filled path cell; `REPLACE:*`/empty → fall through. (2) Auto-discover: fat-client parent = `$REPO_ROOT/.ai/..`; thin-client parent = `$AGENT_OS_SOURCE/..`; check `${parent}/.ai.ui|.ai.biz|.ai.soc`; missing = "not installed". (3) Before routing, verify the framework dir + its `skills/README.md` exist; if absent, route to `@ai-director` prefixed `[degraded: <framework> not installed]` — never route into the void.
 
