@@ -4,9 +4,9 @@
 
 **Closed:** 2025-07-17 — foundation probe complete; coverage at 80%
 
-**Updated:** 2025-07-17
+**Updated:** 2026-07-06
 
-**Repository state:** Greenfield — foundation P0–P6 complete. **Plan-master-ready: 2025-07-17** (S4: 10/10 pass). All foundation artifacts created: docs 01–04, 7 ADRs, 7 standards, 1 SPEC, registries, Docker Compose stack, README.
+**Repository state:** Greenfield — foundation P0–P6 complete. **Plan-master-ready: 2025-07-17** (S4: 10/10 pass). All foundation artifacts created: docs 01–04, 7 ADRs, 7 standards (`.work/standards/`), 1 SPEC, registries, Docker Compose stack, README. **Layout:** v0.5.2 thin-client — standards + integration cache under `.work/`; skills load from `$AGENT_OS_SOURCE`.
 
 **Recommended pick-up file:** `.work/plans/NEXT.md`
 
@@ -30,9 +30,9 @@ End with **`@session-control close`** (add `commit` / `commit push` only when re
 | If the task touches… | Read first |
 |----------------------|------------|
 | Product scope / foundation | `.work/plans/foundation/*-01-*.md` … `*-04-*.md` |
-| Any code or new feature | `.ai/standards/*CONVENTIONS*`, `*FEATURE_STANDARD*` |
-| External integration | `*-02-*.md`, `.ai/docs/integration/MANIFEST.txt` (if any) |
-| Security | `.ai/standards/*threat-model*` |
+| Any code or new feature | `.work/standards/*CONVENTIONS*`, `*FEATURE_STANDARD*` |
+| External integration | `*-02-*.md`, `.work/docs/integration/MANIFEST.txt` (if any) |
+| Security | `.work/standards/*threat-model*` |
 | Stack / topology | `DOCS_TECH_STACK.md` |
 | Master plan / milestones | `.work/plans/full/*-full-plan.md` |
 | High-risk feature | Relevant `.work/features/<slug>/*-SPEC.md` |

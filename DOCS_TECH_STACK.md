@@ -33,10 +33,12 @@
 | `backend/tests/` | Test suite |
 | `worker/` | Celery worker: parsing, embeddings, LLM |
 | `frontend/` | UI (React + Vite) |
-| `.ai/` | Agent OS (skills, standards, guides) |
+| `.cursorrules` | Agent OS rules + thin-client `$AGENT_OS_SOURCE` pointer |
+| `.work/standards/` | Binding engineering standards (project-owned) |
+| `.work/docs/integration/` | Vendor integration manifest + mirrors |
 | `.work/` | Plans, SPECs, ADRs, HANDOFF |
 
-See `.ai/standards/*-DIRECTORY_MAP.md` after customization.
+See `.work/standards/*-DIRECTORY_MAP.md` after customization.
 
 ---
 
@@ -48,8 +50,8 @@ See `.ai/standards/*-DIRECTORY_MAP.md` after customization.
 | Compose file | `docker-compose.yml` |
 | Test command | `pytest tests/ -q` |
 | Lint | `ruff check .` |
-| Scope check | `bash .ai/scripts/touch-scope-verify.sh` (when Agent OS scripts present) |
-| Blast radius | `bash .ai/scripts/blast-radius-check.sh` (when Agent OS scripts present) |
+| Scope check | `bash /mnt/work/Projects/.ai/scripts/touch-scope-verify.sh` |
+| Blast radius | `bash /mnt/work/Projects/.ai/scripts/blast-radius-check.sh` |
 | Type check | `pyright .` |
 
 ---

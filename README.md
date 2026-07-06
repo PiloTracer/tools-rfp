@@ -48,7 +48,7 @@ open http://localhost
 | Foundation docs | `.work/plans/foundation/` |
 | ADRs | `.work/decisions/` |
 | Feature SPECs | `.work/features/` |
-| Standards | `.ai/standards/` |
+| Standards | `.work/standards/` |
 | Session handoff | `.work/context/HANDOFF.md` |
 | Tech stack | `DOCS_TECH_STACK.md` |
 

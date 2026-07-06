@@ -51,7 +51,7 @@
 
 ## 4. Integration manifest
 
-See `.ai/docs/integration/MANIFEST.txt` for mirrored vendor artifacts.
+See `.work/docs/integration/MANIFEST.txt` for mirrored vendor artifacts.
 
 | Vendor | Resource | Version | Mirrored |
 |--------|----------|---------|----------|

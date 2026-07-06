@@ -1,6 +1,6 @@
 # NEXT - planning backlog
 
-**Updated:** 2025-07-17
+**Updated:** 2026-07-06
 
 ---
 
@@ -13,8 +13,9 @@
 | Foundation probe (2 iterations) | Coverage 80% — D1–D4, D6–D8 confirmed; D5, D9, D10 partial |
 | Foundation P1 (exploration) | Docs 02 (integration), 03 (adjacency), 04 (architecture foundation) created; 01↔02↔03↔04 cross-linked |
 | Foundation P2 (ADRs) | 7 ADRs created (stack, DB, frontend, tenancy, LiteLLM, deploy, locales) |
-| Foundation P3 (SPECs) | CONVENTIONS, FEATURE_STANDARD, DIRECTORY_MAP created; RAG Engine SPEC (BC3 — highest risk) with R1–R8; architecture fitness review passed |
-| Foundation P4 (Cross-cutting) | Threat model (8 threats), data classification (4 levels), observability spec, API style guide created; UX/UI validation: personas + journeys exist (doc 01); accessibility deferred (U16) |
+| Foundation P3 (SPECs) | CONVENTIONS, FEATURE_STANDARD, DIRECTORY_MAP in `.work/standards/`; RAG Engine SPEC (BC3 — highest risk) with R1–R8; architecture fitness review passed |
+| Foundation P4 (Cross-cutting) | Threat model, data classification, observability spec, API style guide in `.work/standards/`; UX/UI validation: personas + journeys exist (doc 01); accessibility deferred (U16) |
+| v0.5.2 layout consolidation (2026-07-06) | Standards restored to `.work/standards/`; integration manifest to `.work/docs/integration/`; path references updated; `@deploy-basic update` applied |
 | Foundation P5 (Infrastructure) | Docker Compose proposal approved → `docker-compose.yml`, `Dockerfile.api`, `Dockerfile.dashboard`, `.env.example` created; sandbox onboarding runbook documented |
 | Foundation P6 (Operations) | README, .gitignore created; P6 gate passed; **Plan-master-ready certified** (S4: 10/10 pass) |
 

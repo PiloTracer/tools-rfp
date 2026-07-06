@@ -22,7 +22,7 @@
 | 1 | **foundation-complete: yes** (P0–P6 gates done) | **pass** | All 7 phases complete (P0–P6); each gate checklist passed |
 | 2 | **Core ADRs Decided** | **pass** | 7 ADRs (stack, DB, frontend, tenancy, LiteLLM, deploy, locales) — all Decided |
 | 3 | **Highest-risk BC SPEC with numbered rules** | **pass** | BC3 (RAG Engine) SPEC with R1–R8 rules |
-| 4 | **Directory map exists, aligns with doc 04 BCs** | **pass** | `.ai/standards/*-DIRECTORY_MAP.md` maps all 7 BCs; dependency direction matches doc 04 |
+| 4 | **Directory map exists, aligns with doc 04 BCs** | **pass** | `.work/standards/*-DIRECTORY_MAP.md` maps all 7 BCs; dependency direction matches doc 04 |
 | 5 | **Registries populated + reviewed** | **pass** | ASSUMPTIONS (A1–A20), RISK (R1–R23), UNKNOWNS (U1–U16) — all reviewed each phase |
 | 6 | **No unresolved architectural contradictions** | **pass** | Architecture fitness reviews at P3, P4, P5 all passed. ADRs ↔ doc 04 ↔ SPECs aligned |
 | 7 | **Traceability spot-check passes** | **pass** | RAG SPEC references ADR-002 + ADR-005; ADRs trace to foundation scope |

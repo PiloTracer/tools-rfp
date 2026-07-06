@@ -1,5 +1,7 @@
 # ADR index — RFP Platform
 
+Process: `$AGENT_OS_SOURCE/skills/plan-foundation/skill.md` P2 · pointer: `.work/decisions/README.md`.
+
 **Updated:** 2025-07-17
 
 | # | Title | Status | Date |

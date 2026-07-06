@@ -172,6 +172,6 @@ Referenced in [UNKNOWNS.md](../../UNKNOWNS.md):
 - [x] Scope doc (01) exists; uses **architecture foundation** wording
 - [x] Architecture foundation doc (04) exists with bounded contexts + dependency direction
 - [x] 01↔02↔03↔04 cross-linked
-- [x] Integration manifest + mirror (see `.ai/docs/integration/MANIFEST.txt`)
+- [x] Integration manifest + mirror (see `.work/docs/integration/MANIFEST.txt`)
 - [x] Open questions explicit in `UNKNOWNS.md`
 - [x] Initial risks in `RISK_REGISTRY.md`
