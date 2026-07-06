@@ -1,6 +1,6 @@
 # NEXT - planning backlog
 
-**Updated:** YYYY-MM-DD
+**Updated:** 2025-07-17
 
 ---
 
@@ -9,6 +9,8 @@
 | Item | Artifact |
 |------|----------|
 | Agent OS bootstrap | `.work/` skeleton, `.cursorrules` from template |
+| Foundation P0 (initial scope) | `.work/plans/foundation/20250717-01-rfp-platform-initial-scope.md` |
+| Foundation probe (2 iterations) | Coverage 80% — D1–D4, D6–D8 confirmed; D5, D9, D10 partial |
 
 ---
 
@@ -16,7 +18,9 @@
 
 | # | Item | Notes |
 |---|------|-------|
-| - | (none) | |
+| 1 | Concurrent user count for V1 (U7) | Blocks scaling architecture decisions |
+| 2 | SOC2/GDPR compliance timeline (U8) | Blocks compliance ADR |
+| 3 | V1 feature prioritization — which features to cut for 1–2 month timeline (U9) | Blocks scope lock |
 
 ---
 
@@ -24,8 +28,8 @@
 
 | Priority | Item | Notes |
 |----------|------|-------|
-| **0** | `@plan-foundation greenfield` | Creates foundation docs 01–04 if not present |
-| **1** | `@plan-foundation certify plan-master-ready` | After P0–P6 complete |
+| **0** | `@plan-foundation continue` | Walk P1–P6 gates: create docs 02–04, ADRs, standards, SPECs |
+| **1** | `@plan-foundation certify plan-master-ready` | After P0–P6 complete (probe at 80%, may pass with waivers) |
 | **2** | `@plan-master greenfield` | Master plan after foundation ready |
 
 ---

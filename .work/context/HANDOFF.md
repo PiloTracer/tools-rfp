@@ -2,13 +2,11 @@
 
 ## Session status
 
-**Open:** 2025-07-17
+**Closed:** 2025-07-17 — foundation probe complete; coverage at 80%
 
 **Updated:** 2025-07-17
 
-**Closed:** -
-
-**Repository state:** Greenfield — foundation P0 complete, tokens filled.
+**Repository state:** Greenfield — foundation P0 complete with probe coverage 80% (target 85%). Doc 01 enriched with verbatim intent, bounded contexts, data model, user journeys, constraints. D5/D9 still partial (need ADR + owner decisions).
 
 **Recommended pick-up file:** `.work/plans/NEXT.md`
 
@@ -45,7 +43,9 @@ End with **`@session-control close`** (add `commit` / `commit push` only when re
 
 | # | Action | Blocks | Owner |
 |---|--------|--------|-------|
-| - | (none) | | |
+| 1 | Decide concurrent user count for V1 (U7) | Scaling architecture | eng |
+| 2 | Decide SOC2/GDPR compliance timeline (U8) | Compliance ADR | legal/product |
+| 3 | Decide which V1 features to cut for 1–2 month timeline (U9) | Feature prioritization | product |
 
 ---
 
@@ -53,9 +53,9 @@ End with **`@session-control close`** (add `commit` / `commit push` only when re
 
 | Date | Session | Artifacts |
 |------|---------|-----------|
-| YYYY-MM-DD | | |
 | 2025-07-17 | @session-control commit push | Initial bootstrap commit (`67de44d`) pushed to main |
 | 2025-07-17 | @ai-director policy | Saved memory: `commit-push-only-on-explicit` (high priority) |
+| 2025-07-17 | @plan-foundation probe (×2) | Doc 01 enriched: verbatim intent, success criteria, 5 user journeys, 7 bounded contexts, 10 entities, NFRs, constraints, integrations; PROBE_LEDGER.md created; ASSUMPTIONS A7–A17 added; RISK R11–R14 added; UNKNOWNS U7–U10 added; MANIFEST.txt created |
 
 ---
 
@@ -63,7 +63,10 @@ End with **`@session-control close`** (add `commit` / `commit push` only when re
 
 | ID | Summary | Blocks |
 |----|---------|--------|
-| - | | |
+| U7 | Concurrent user count for V1 | Scaling architecture |
+| U8 | SOC2/GDPR compliance at launch or deferred | Compliance ADR |
+| U9 | V1 scope too large for timeline — which features to cut | Feature prioritization |
+| U10 | Baseline metrics for success measurement | Success criteria validation |
 
 ---
 
@@ -83,4 +86,4 @@ End with **`@session-control close`** (add `commit` / `commit push` only when re
 2. Reviewed existing protections: `.cursorrules` (`NEVER git commit/push unless user requests it`) and `session-control/skill.md` hard rules already enforce this
 **User correction:** none
 **Blockers:** none
-**Next recommended:** @session-control start when ready to begin work
+**Next recommended:** @plan-foundation continue (P1–P6 gates) or @plan-foundation certify plan-master-ready

@@ -1,0 +1,13 @@
+# Integration artifact manifest
+
+**Updated:** 2025-07-17
+
+| Artifact | Source | Version | SHA-256 | Date |
+|----------|--------|---------|---------|------|
+| LiteLLM | docs.litellm.ai | latest | — | 2025-07-17 (reference only, no local copy) |
+| Unstructured.io | docs.unstructured.io | latest | — | 2025-07-17 (reference only) |
+| Microsoft Graph API | learn.microsoft.com | v1.0 | — | 2025-07-17 (email integration, pending sandbox) |
+| Google Gmail API | developers.google.com | v1 | — | 2025-07-17 (email integration, pending sandbox) |
+| IMAP/SMTP | RFC 905 (IMAP), RFC 5321 (SMTP) | — | — | 2025-07-17 (generic email) |
+
+**Note:** No vendor artifacts mirrored locally yet. This manifest tracks reference documentation only. Local copies will be added during P1 integration exploration when sandbox access is confirmed.

@@ -12,6 +12,17 @@ Label every entry: **Confirmed** | **Inference** | **Unverified** | **Rejected**
 | A4 | Self-hosted deployment is a purchase criterion for security-conscious buyers | Inference | foundation doc 01 | |
 | A5 | AI accuracy + citation transparency builds the trust needed for adoption | Inference | foundation doc 01 | |
 | A6 | Dev workflow follows `.cursorrules` (Docker or documented local CI) | Confirmed | `.cursorrules` | |
+| A7 | V1 targets relaxed NFRs: <5min parse, <60s/question, <30min full draft | Confirmed | Probe iter-1 user answer | |
+| A8 | 99% uptime acceptable for V1 (not 99.9%) | Confirmed | Probe iter-1 user answer | |
+| A9 | Multi-tenant SaaS with RLS from day one (not single-tenant) | Confirmed | Probe iter-1 user answer | |
+| A10 | RFPs contain employee PII, business financials, and gov/regulatory identifiers | Confirmed | Probe iter-1 user answer | |
+| A11 | LiteLLM multi-provider abstraction for LLM calls (not single vendor lock-in) | Confirmed | Probe iter-1 user answer | |
+| A12 | Email import via Microsoft 365, Google Workspace, and generic IMAP/SMTP | Confirmed | Probe iter-1 user answer | |
+| A13 | Success criteria: win rate improvement, cost reduction, volume throughput | Confirmed | Probe iter-2 user answer | Specific targets TBD (baseline measurement needed) |
+| A14 | 7 bounded contexts: Ingestion, KB, RAG, Review, Export, Identity, Admin | Confirmed | Probe iter-2 user answer | |
+| A15 | 10 core entities including Approval, Previous Response, Permission | Confirmed | Probe iter-2 user answer | |
+| A16 | Solo/small team (1–2 devs), tight budget (<$5k/mo), 1–2 month timeline | Confirmed | Probe iter-2 user answer | Aggressive scope — may need cuts |
+| A17 | Scope should prioritize P0 features only (1–7, 9, 10, 13); defer P1 (8, 11, 12) | Inference | Probe iter-2 agent analysis | Based on timeline constraint |
 
 ## Rejected
 

@@ -16,6 +16,10 @@ Status: **Open** | **Mitigated** | **Accepted** | **Closed**
 | R8 | Knowledge base too large for efficient retrieval | technical | M | M | Hierarchical retrieval (summary → relevant section → chunk) | Open | eng |
 | R9 | Customer data leaves self-hosted deployment | compliance | L | H | Fully self-hosted; all data in PostgreSQL + MinIO; API calls opt-in with non-training headers | Mitigated | eng |
 | R10 | Compliance rulebook contradicts AI-generated content | compliance | M | H | Compliance rulebook loaded as override facts in RAG; second-pass compliance check | Open | eng |
+| R11 | Multi-tenant RLS misconfiguration leaks data across tenants | security | L | H | Strict RLS policies; automated tenant isolation tests; row-level audit logging | Open | eng |
+| R12 | LiteLLM abstraction adds latency overhead per LLM call | performance | M | M | Connection pooling; async calls; per-provider timeout tuning | Open | eng |
+| R13 | Email integration auth tokens expire / OAuth scopes too broad | security | M | M | Token refresh logic; minimal scope requests; rotate-on-error | Open | eng |
+| R14 | 13-feature V1 scope too large for 1–2 month solo/small team timeline | process | H | H | Ruthlessly prioritize P0 features; cut P1; consider phased launch | Open | product |
 
 ## Review log
 
