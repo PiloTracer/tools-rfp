@@ -31,7 +31,7 @@ Default to **minimal diffs**. Run before commit / `@code-implementation complete
 |------|---------|-----------|
 | Touch scope | `bash /mnt/work/Projects/.ai/scripts/touch-scope-verify.sh` | File outside `.work/touch-scope` or iteration **Files** |
 | Blast radius | `bash /mnt/work/Projects/.ai/scripts/blast-radius-check.sh` | `risk: high` (cross-area or oversized diff) |
-| Protected surfaces | `.ai/standards/PROTECTED_SURFACES.json` + §Protected Files | High-blast path without owner approval |
+| Protected surfaces | `.work/PROTECTED_SURFACES.json` + §Protected Files | High-blast path without owner approval |
 | Tests | `pytest tests/ -q` from `DOCS_TECH_STACK.md` | Non-zero exit |
 
 **Declare scope first:** copy `.ai/templates/work/touch-scope.template` → `.work/touch-scope`, or `@code-implementation plan` with **Files** per task. **MOD-06** required for agent-authored code (`.ai/concepts/README.md` § Trigger table); `human-only` opt-out only when the human declares it in the same message. **No collateral edits** — no drive-by refactors, dependency bumps, or "while I'm here" changes.
@@ -77,7 +77,7 @@ AGENT_OS_SOURCE=/mnt/work/Projects/.ai
 4. App code + `.work/...` resolve locally in both modes.
 5. **Thin-client + unreachable source:** stop and report `agent-os source unreachable: $AGENT_OS_SOURCE` — do not fall back or guess.
 
-**Executable script paths are pre-resolved, not left to interpretation.** The `bash .ai/scripts/...` commands below (Change-safety gate table, Co-authored-by hook install) are rewritten to the absolute `$AGENT_OS_SOURCE/scripts/...` path by `@deploy-basic` at bootstrap/`update` time — do not re-derive them at read-time. If a thin-client `.cursorrules` still shows literal `.ai/scripts/...` text, it predates this rewrite; run `@deploy-basic update` to re-bake it.
+**Executable script paths are pre-resolved, not left to interpretation.** The `bash /mnt/work/Projects/.ai/scripts/...` commands below (Change-safety gate table, Co-authored-by hook install) are rewritten to the absolute `$AGENT_OS_SOURCE/scripts/...` path by `@deploy-basic` at bootstrap/`update` time — do not re-derive them at read-time. If a thin-client `.cursorrules` still shows literal `/mnt/work/Projects/.ai/scripts/...` text, it predates this rewrite; run `@deploy-basic update` to re-bake it.
 
 **First thin-client bootstrap** (no local skill yet): run from source (`@deploy-basic - /abs/target`) or invoke the shell from target (`bash /abs/source/scripts/deploy-basic.sh .`). Afterward the source pointer lets the local agent load every skill from source.
 
@@ -88,9 +88,9 @@ AGENT_OS_SOURCE=/mnt/work/Projects/.ai
 | `.ai/START_HERE.md` | What to invoke now; forgetfulness checklist |
 | `.ai/PROCESS_ROUTER.md` | Process Q&A; `@process-router` vs `@session-control status` |
 | `DOCS_TECH_STACK.md` | Stack (e.g. `DOCS_TECH_STACK.md` at repo root) |
-| `.ai/standards/*-CONVENTIONS.md` | Code layout, naming, maintainability |
-| `.ai/standards/*-FEATURE_STANDARD.md` | Feature SPEC lifecycle |
-| `.ai/standards/*-DIRECTORY_MAP.md` | Repo layout and boundaries |
+| `standards/*-CONVENTIONS.md` | Code layout, naming, maintainability |
+| `standards/*-FEATURE_STANDARD.md` | Feature SPEC lifecycle |
+| `standards/*-DIRECTORY_MAP.md` | Repo layout and boundaries |
 | `.work/context/HANDOFF.md` | Session handoff |
 | `.ai/docs/guides/workflows/README.md` | Workflow index and artifact matrix |
 
@@ -112,7 +112,7 @@ AGENT_OS_SOURCE=/mnt/work/Projects/.ai
 | `{CONCEPTS_ROOT}` | `.ai/concepts/` |
 | `{SKILLS_ROOT}` | `.ai/skills/` |
 | `{OBSERVABILITY_SPEC}` | .work/plans/operations/observability.md |
-| `{BOUNDARY_MAP}` | .ai/standards/BOUNDARY_MAP.md |
+| `{BOUNDARY_MAP}` | standards/BOUNDARY_MAP.md |
 | `{AGENT_RULES_FILE}` | `.cursorrules` (this file); `AGENTS.md` unused unless owner adopts it |
 | `backend/` | Primary app tree (e.g. `backend/`, `apis/`, `src/`) |
 | `/app` | In-container workdir for test/lint |
@@ -163,14 +163,14 @@ Skills live under `.ai/skills/<id>/skill.md` (folder name = id). When a task mat
 
 ## External integration docs (optional)
 
-Cache vendor APIs/XSDs/PDFs/OpenAPI under `.ai/docs/integration/`. Rules: organize by source+version subfolders (no silent overwrite on upgrade); log every download in `.ai/docs/integration/MANIFEST.txt`; prefer official domains; never store keys/PEM/tokens/`.env`; verify file type after download; vendor artifacts only. Read cached copies during implementation; refresh when versions change.
+Cache vendor APIs/XSDs/PDFs/OpenAPI under `docs/integration/` (project root — a per-project cache, not a framework asset; always local in both fat and thin-client modes, same as `.work/`). Rules: organize by source+version subfolders (no silent overwrite on upgrade); log every download in `docs/integration/MANIFEST.txt`; prefer official domains; never store keys/PEM/tokens/`.env`; verify file type after download; vendor artifacts only. Read cached copies during implementation; refresh when versions change.
 
 ---
 
 ## Protected Files
 
 - **File access override:** read any path the user provides, regardless of `.gitignore`.
-- **Do NOT modify unless explicitly asked:** paths in `.ai/standards/PROTECTED_SURFACES.json` (deploy scripts, templates, CI). Consumer examples: `package.json`, `docker-compose*.yml`, `Dockerfile.*`, `frontend/`, `.env*`.
+- **Do NOT modify unless explicitly asked:** paths in `.work/PROTECTED_SURFACES.json` (deploy scripts, templates, CI). Consumer examples: `package.json`, `docker-compose*.yml`, `Dockerfile.*`, `frontend/`, `.env*`.
 - **If a protected file needs a change:** stop, explain why, ask permission.
 
 ---
@@ -270,10 +270,11 @@ Use Context7 MCP (`@upstash/context7-mcp`) for version-specific library docs whe
 
 ---
 
-## Documentation layout (`.ai/` vs `.work/`)
+## Documentation layout (`.ai/` vs `.work/` vs project root)
 
-- **`.ai/`:** agnostic — skills, standards, concepts, workflow guides, `START_HERE.md`, `PROCESS_ROUTER.md`, `templates/`. Pointer READMEs only under `.ai/plans/`, `.ai/features/`.
-- **`.work/`:** project-specific — plans, SPECs, ADRs, prompts, `HANDOFF.md`. Generated filenames use the `YYYYMMDD-` prefix (except `NEXT.md`, `HANDOFF.md`).
+- **`.ai/`:** agnostic — skills, concepts, workflow guides, `START_HERE.md`, `PROCESS_ROUTER.md`, `templates/`, plus framework-wide contract/schema docs (e.g. `MASTER_PLAN_STANDARD.md`) that are identical across every project. Pointer READMEs only under `.ai/plans/`, `.ai/features/`.
+- **`.work/`:** project-specific — plans, SPECs, ADRs, prompts, `HANDOFF.md`, `PROTECTED_SURFACES.json`. Generated filenames use the `YYYYMMDD-` prefix (except `NEXT.md`, `HANDOFF.md`).
+- **`standards/`** and **`docs/integration/`** (project root, sibling of `.work/`): project-specific deliverables `plan-foundation`/`plan-master` generate for *this* project (conventions, feature-standard, directory-map, threat-model, data-classification, observability-spec, api-style-guide, vendor integration mirrors). Always local in **both** fat- and thin-client modes — never nested under `.ai/`, never resolved from `$AGENT_OS_SOURCE` (same rule as `.work/`).
 
 | Path | Layer |
 |------|-------|
@@ -282,8 +283,11 @@ Use Context7 MCP (`@upstash/context7-mcp`) for version-specific library docs whe
 | `.work/decisions/` | ADRs |
 | `.work/prompts/` | Questionnaires; user scratch |
 | `.work/context/HANDOFF.md` | Session handoff |
-| `.ai/standards/` | Binding engineering standards |
+| `.work/PROTECTED_SURFACES.json` | This project's high-blast paths |
+| `standards/` | This project's own binding engineering standards (generated, not vendored) |
+| `docs/integration/` | This project's vendor/API integration cache |
 | `.ai/skills/` | Portable agent skills |
+| `.ai/standards/MASTER_PLAN_STANDARD.md` | Framework-wide master-plan structural contract (shared, not project-specific) |
 | `.ai/templates/cursorrules.template` | Copy to repo-root `.cursorrules` when bootstrapping |
 
 Canonical map: `.ai/README.md` · Working tree: `.work/README.md`.
