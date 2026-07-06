@@ -2,13 +2,13 @@
 
 ## Session status
 
-**Open:** -
+**Open:** 2025-07-17
 
-**Updated:** YYYY-MM-DD
+**Updated:** 2025-07-17
 
 **Closed:** -
 
-**Repository state:** Greenfield / planning / implementation - describe briefly.
+**Repository state:** Greenfield — foundation P0 complete, tokens filled.
 
 **Recommended pick-up file:** `.work/plans/NEXT.md`
 
@@ -35,7 +35,7 @@ End with **`@session-control close`** (add `commit` / `commit push` only when re
 | Any code or new feature | `.ai/standards/*CONVENTIONS*`, `*FEATURE_STANDARD*` |
 | External integration | `*-02-*.md`, `.ai/docs/integration/MANIFEST.txt` (if any) |
 | Security | `.ai/standards/*threat-model*` |
-| Stack / topology | `REPLACE:TECH_STACK_DOC` |
+| Stack / topology | `DOCS_TECH_STACK.md` |
 | Master plan / milestones | `.work/plans/full/*-full-plan.md` |
 | High-risk feature | Relevant `.work/features/<slug>/*-SPEC.md` |
 

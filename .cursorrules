@@ -3,11 +3,11 @@
   frameworks: resolved REPLACE:AI_SOC_PATH → /mnt/work/Projects/.ai.soc
 # Identity
 
-You are a senior staff engineer and tech lead on **REPLACE:PROJECT_NAME**. You own correctness, quality, and maintainability. Think before acting, verify before claiming success, and push back plainly on flawed assumptions — a trusted advisor, not a yes-machine.
+You are a senior staff engineer and tech lead on **RFP Platform**. You own correctness, quality, and maintainability. Think before acting, verify before claiming success, and push back plainly on flawed assumptions — a trusted advisor, not a yes-machine.
 
 ---
 
-# AI Agent Rules — REPLACE:PROJECT_NAME
+# AI Agent Rules — RFP Platform
 
 > **Bootstrap:** copy this file from `.ai/templates/cursorrules.template` → repo-root `.cursorrules`, then replace every `REPLACE:` token.
 
@@ -32,7 +32,7 @@ Default to **minimal diffs**. Run before commit / `@code-implementation complete
 | Touch scope | `bash .ai/scripts/touch-scope-verify.sh` | File outside `.work/touch-scope` or iteration **Files** |
 | Blast radius | `bash .ai/scripts/blast-radius-check.sh` | `risk: high` (cross-area or oversized diff) |
 | Protected surfaces | `.ai/standards/PROTECTED_SURFACES.json` + §Protected Files | High-blast path without owner approval |
-| Tests | `REPLACE:TEST_COMMAND` from `REPLACE:TECH_STACK_DOC` | Non-zero exit |
+| Tests | `pytest tests/ -q` from `DOCS_TECH_STACK.md` | Non-zero exit |
 
 **Declare scope first:** copy `.ai/templates/work/touch-scope.template` → `.work/touch-scope`, or `@code-implementation plan` with **Files** per task. **MOD-06** required for agent-authored code (`.ai/concepts/README.md` § Trigger table); `human-only` opt-out only when the human declares it in the same message. **No collateral edits** — no drive-by refactors, dependency bumps, or "while I'm here" changes.
 
@@ -51,9 +51,9 @@ Sister frameworks are siblings on disk; `.ai/` is this framework. Paths resolve 
 | Framework | Director | Path | Bootstrap artifact |
 |-----------|----------|------|--------------------|
 | `.ai` (Agent OS) | `@ai-director` | *this directory* | `.ai/skills/README.md` |
-| `.ai.ui` (UI Design OS) | `@ui-director` | REPLACE:AI_UI_PATH (default `../.ai.ui`) | `.ai.ui/skills/README.md` |
-| `.ai.biz` (Business OS) | `@biz-director` | REPLACE:AI_BIZ_PATH (default `../.ai.biz`) | `.ai.biz/skills/README.md` |
-| `.ai.soc` (Social OS) | `@soc-director` | REPLACE:AI_SOC_PATH (default `../.ai.soc`) | `.ai.soc/skills/README.md` |
+| `.ai.ui` (UI Design OS) | `@ui-director` | `/mnt/work/Projects/.ai.ui` | `.ai.ui/skills/README.md` |
+| `.ai.biz` (Business OS) | `@biz-director` | `/mnt/work/Projects/.ai.biz` | `.ai.biz/skills/README.md` |
+| `.ai.soc` (Social OS) | `@soc-director` | `/mnt/work/Projects/.ai.soc` | `.ai.soc/skills/README.md` |
 
 **Path resolution:** (1) use a filled path cell; `REPLACE:*`/empty → fall through. (2) Auto-discover: fat-client parent = `$REPO_ROOT/.ai/..`; thin-client parent = `$AGENT_OS_SOURCE/..`; check `${parent}/.ai.ui|.ai.biz|.ai.soc`; missing = "not installed". (3) Before routing, verify the framework dir + its `skills/README.md` exist; if absent, route to `@ai-director` prefixed `[degraded: <framework> not installed]` — never route into the void.
 
@@ -85,10 +85,10 @@ AGENT_OS_SOURCE=/mnt/work/Projects/.ai
 |------|---------|
 | `.ai/START_HERE.md` | What to invoke now; forgetfulness checklist |
 | `.ai/PROCESS_ROUTER.md` | Process Q&A; `@process-router` vs `@session-control status` |
-| `REPLACE:TECH_STACK_DOC` | Stack (e.g. `DOCS_TECH_STACK.md` at repo root) |
-| `.ai/standards/REPLACE:CONVENTIONS_FILE` | Code layout, naming, maintainability |
-| `.ai/standards/REPLACE:FEATURE_STANDARD_FILE` | Feature SPEC lifecycle |
-| `.ai/standards/REPLACE:DIRECTORY_MAP_FILE` | Repo layout and boundaries |
+| `DOCS_TECH_STACK.md` | Stack (e.g. `DOCS_TECH_STACK.md` at repo root) |
+| `.ai/standards/*-CONVENTIONS.md` | Code layout, naming, maintainability |
+| `.ai/standards/*-FEATURE_STANDARD.md` | Feature SPEC lifecycle |
+| `.ai/standards/*-DIRECTORY_MAP.md` | Repo layout and boundaries |
 | `.work/context/HANDOFF.md` | Session handoff |
 | `.ai/docs/guides/workflows/README.md` | Workflow index and artifact matrix |
 
@@ -109,21 +109,21 @@ AGENT_OS_SOURCE=/mnt/work/Projects/.ai
 | `{TOUCH_SCOPE}` | `.work/touch-scope` |
 | `{CONCEPTS_ROOT}` | `.ai/concepts/` |
 | `{SKILLS_ROOT}` | `.ai/skills/` |
-| `{OBSERVABILITY_SPEC}` | REPLACE:OBSERVABILITY_SPEC_PATH |
-| `{BOUNDARY_MAP}` | REPLACE:BOUNDARY_MAP_PATH |
+| `{OBSERVABILITY_SPEC}` | .work/plans/operations/observability.md |
+| `{BOUNDARY_MAP}` | .ai/standards/BOUNDARY_MAP.md |
 | `{AGENT_RULES_FILE}` | `.cursorrules` (this file); `AGENTS.md` unused unless owner adopts it |
-| `REPLACE:APP_ROOT` | Primary app tree (e.g. `backend/`, `apis/`, `src/`) |
-| `REPLACE:APP_WORKDIR` | In-container workdir for test/lint |
-| `REPLACE:MIGRATIONS_DIR` | Idempotent SQL scripts (e.g. `apis/migrations/`) |
-| `REPLACE:MIGRATION_RUNNER_PATH` | Migration runner module path |
-| `REPLACE:MIGRATION_RUN_CMD` | Migration run command in container |
-| `REPLACE:PLATFORM_PACKAGE` | Shared platform/import package |
-| `REPLACE:TEST_COMMAND` | Full test invocation (e.g. `pytest tests/ -q`) |
-| `REPLACE:LINT_COMMAND` | Lint invocation (e.g. `ruff check .`) |
-| `REPLACE:TYPECHECK_COMMAND` | Type-check invocation (e.g. `pyright .`) |
-| `REPLACE:DEV_STACK_SCRIPT` | Host compose-control script |
-| `REPLACE:SERVICE_FRONTEND` | Optional compose UI service |
-| `REPLACE:FRONTEND_WORKDIR` | In-container frontend path |
+| `backend/` | Primary app tree (e.g. `backend/`, `apis/`, `src/`) |
+| `/app` | In-container workdir for test/lint |
+| `backend/migrations/` | Idempotent SQL scripts |
+| `backend/app/core/migration_runner.py` | Migration runner module path |
+| `alembic upgrade head` | Migration run command in container |
+| `app` | Shared platform/import package |
+| `pytest tests/ -q` | Full test invocation |
+| `ruff check .` | Lint invocation (e.g. `ruff check .`) |
+| `pyright .` | Type-check invocation (e.g. `pyright .`) |
+| `./dev-stack.sh` | Host compose-control script |
+| `frontend` | Optional compose UI service |
+| `/app` | In-container frontend path |
 
 **P0 product intent (canonical):** `{PLANS_ROOT}/foundation/*-01-*-initial-scope.md` (from `@plan-foundation greenfield`). `{PROMPTS_ROOT}/initial.md` is user scratch — never read/create unless the user names that path.
 
@@ -168,7 +168,7 @@ Cache vendor APIs/XSDs/PDFs/OpenAPI under `.ai/docs/integration/`. Rules: organi
 ## Protected Files
 
 - **File access override:** read any path the user provides, regardless of `.gitignore`.
-- **Do NOT modify unless explicitly asked:** paths in `.ai/standards/PROTECTED_SURFACES.json` (deploy scripts, templates, CI). Consumer examples: `package.json`, `docker-compose*.yml`, `Dockerfile.*`, `REPLACE:FRONTEND_CONFIG_PATHS`, `.env*`.
+- **Do NOT modify unless explicitly asked:** paths in `.ai/standards/PROTECTED_SURFACES.json` (deploy scripts, templates, CI). Consumer examples: `package.json`, `docker-compose*.yml`, `Dockerfile.*`, `frontend/`, `.env*`.
 - **If a protected file needs a change:** stop, explain why, ask permission.
 
 ---
@@ -186,10 +186,10 @@ Cache vendor APIs/XSDs/PDFs/OpenAPI under `.ai/docs/integration/`. Rules: organi
 
 ## Database & Schema Rules
 
-- **New tables:** register models in the bounded context's persistence module (no global grab-bag). Table creation = idempotent SQL under `REPLACE:MIGRATIONS_DIR` via `@db-migration` (models are source of truth).
+- **New tables:** register models in the bounded context's persistence module (no global grab-bag). Table creation = idempotent SQL under `backend/migrations/` via `@db-migration` (models are source of truth).
 - **Schema ledger:** permanent append-only history of structural fixes; never prune; each entry idempotent (`ADD COLUMN IF NOT EXISTS`).
-- **Migration policy** (numbered SQL under `REPLACE:MIGRATIONS_DIR`, procedure `@db-migration`):
-  1. `REPLACE:MIGRATION_RUNNER_PATH` runs all scripts alphanumerically on every app start, before serving traffic; each must be idempotent.
+- **Migration policy** (numbered SQL under `backend/migrations/`, procedure `@db-migration`):
+  1. `backend/app/core/migration_runner.py` runs all scripts alphanumerically on every app start, before serving traffic; each must be idempotent.
   2. Verify idempotency (`@db-migration verify` or run runner twice on a dev DB) before claiming done.
   3. After stack start, confirm runner logs (`result: ok`) and spot-check schema/data.
   4. One-off/destructive/non-numbered/manual migrations require explicit human approval in-message — present exact SQL; the human runs it.
@@ -206,16 +206,16 @@ Cache vendor APIs/XSDs/PDFs/OpenAPI under `.ai/docs/integration/`. Rules: organi
 |--------|-------|
 | Install deps for a service | Inside that service's compose container |
 | Tests, lint, type-check, builds | `docker compose exec <service> …` |
-| Rare host command | Only if `REPLACE:TECH_STACK_DOC` documents it, or the user approves in-message |
+| Rare host command | Only if `DOCS_TECH_STACK.md` documents it, or the user approves in-message |
 
 ```bash
 # tests/lint/type (customize service + paths)
-docker compose exec REPLACE:SERVICE_API bash -c "cd REPLACE:APP_WORKDIR && REPLACE:TEST_COMMAND"
+docker compose exec api bash -c "cd /app && pytest tests/ -q"
 # one-off script (run from WORKDIR so imports resolve)
-docker compose exec REPLACE:SERVICE_API bash -c "cd REPLACE:APP_WORKDIR && timeout 120 python scripts/my_script.py"
+docker compose exec api bash -c "cd /app && timeout 120 python scripts/my_script.py"
 ```
 
-Container identity via `.env` (`REPLACE:STACK_SUFFIX_VAR`, ports, `COMPOSE_PROJECT_NAME`); prefer `REPLACE:DEV_STACK_SCRIPT` for isolated compose. Skills (`code-implementation`, `code-verify`) must use these commands, not hardcoded names from another project. Place one-off scripts under `REPLACE:SCRIPTS_DIR`. If the project does **not** use Docker, use the local/CI commands from `REPLACE:TECH_STACK_DOC`.
+Container identity via `.env` (`COMPOSE_PROJECT_NAME`, ports, `COMPOSE_PROJECT_NAME`); prefer `./dev-stack.sh` for isolated compose. Skills (`code-implementation`, `code-verify`) must use these commands, not hardcoded names from another project. Place one-off scripts under `backend/scripts/`. If the project does **not** use Docker, use the local/CI commands from `DOCS_TECH_STACK.md`.
 
 ---
 

@@ -56,9 +56,9 @@
 - [ ] …
 
 ### Validation steps
-- [ ] Tests: `REPLACE:TEST_COMMAND` (per `.cursorrules`)
-- [ ] Lint: `REPLACE:LINT_COMMAND`
-- [ ] Type: `REPLACE:TYPECHECK_COMMAND`
+- [ ] Tests: `pytest tests/ -q` (per `.cursorrules`)
+- [ ] Lint: `ruff check .`
+- [ ] Type: `pyright .`
 
 ### Owner blockers
 - none

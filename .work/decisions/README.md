@@ -14,6 +14,6 @@ Project-specific ADRs. Process: `.ai/skills/plan-foundation/skill.md` P2 · poin
 
 | ADR | Topic | Status |
 |-----|-------|--------|
-| 001 | REPLACE:ADR_001_TOPIC | Proposed |
+| 001 | — first ADR goes here — | Proposed |
 
 **Template:** `.ai/templates/work/decisions/YYYYMMDD-NNN-slug.md.template`

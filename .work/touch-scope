@@ -1,5 +1,5 @@
 {
-  "ref": "REPLACE:PROJECT_REF",
+  "ref": "rfp-platform",
   "updated": "YYYY-MM-DD",
   "goal": "one-line session or task goal",
   "allowed_paths": [],

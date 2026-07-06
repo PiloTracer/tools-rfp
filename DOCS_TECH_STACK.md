@@ -1,8 +1,8 @@
-# Technology stack — REPLACE:PROJECT_NAME
+# Technology stack — RFP Platform
 
-**Status:** Draft — fill before implementation. Linked from `.cursorrules` as `REPLACE:TECH_STACK_DOC`.
+**Status:** Final — ready for implementation. Linked from `.cursorrules` as `DOCS_TECH_STACK.md`.
 
-**Updated:** YYYY-MM-DD
+**Updated:** 2025-07-17
 
 ---
 
@@ -10,13 +10,17 @@
 
 | Layer | Choice | Version (pin) | Notes |
 |-------|--------|---------------|-------|
-| Language (primary) | REPLACE:PRIMARY_LANGUAGE | | |
-| HTTP API | REPLACE:HTTP_FRAMEWORK | | |
-| Database | REPLACE:DATABASE | | |
-| Cache / queue | REPLACE:CACHE_OR_QUEUE | | optional |
-| Frontend | REPLACE:FRONTEND | | optional |
-| Auth | REPLACE:AUTH | | |
-| Hosting | REPLACE:HOSTING | | |
+| Language (primary) | Python | 3.12 | AI/LLM ecosystem maturity |
+| HTTP API | FastAPI | latest | Async-native, Pydantic validation |
+| Database | PostgreSQL + pgvector | 16 | Single DB for relational + embeddings |
+| Cache / queue | Redis | 7 | Celery broker + caching + rate-limiting |
+| Frontend | React + Vite + TypeScript | latest | Rich document review UI |
+| Auth | FastAPI Users + JWT | latest | Self-contained for self-hosted |
+| Hosting | Docker Compose | N/A | Self-hosted, single `docker compose up` |
+| Document parsing | Unstructured.io + LibreOffice | latest | PDF/DOCX/XLSX/ODT/TXT |
+| File storage | MinIO | latest | S3-compatible, self-hosted |
+| Task queue | Celery | latest | Document processing, LLM calls |
+| LLM adapter | LiteLLM | latest | Multi-vendor abstraction layer |
 
 ---
 
@@ -24,9 +28,11 @@
 
 | Path | Purpose |
 |------|---------|
-| `REPLACE:APP_ROOT/` | Application source |
-| `REPLACE:MIGRATIONS_DIR/` | Idempotent SQL migrations |
-| `REPLACE:FRONTEND_ROOT/` | UI (if any) |
+| `backend/` | Application source (FastAPI) |
+| `backend/migrations/` | Idempotent SQL migrations (Alembic) |
+| `backend/tests/` | Test suite |
+| `worker/` | Celery worker: parsing, embeddings, LLM |
+| `frontend/` | UI (React + Vite) |
 | `.ai/` | Agent OS (skills, standards, guides) |
 | `.work/` | Plans, SPECs, ADRs, HANDOFF |
 
@@ -38,13 +44,13 @@ See `.ai/standards/*-DIRECTORY_MAP.md` after customization.
 
 | Item | Value |
 |------|-------|
-| Dev stack script | `REPLACE:DEV_STACK_SCRIPT` |
-| Compose file | `docker-compose.yml` (if used) |
-| Test command | `REPLACE:TEST_COMMAND` |
-| Lint | `REPLACE:LINT_COMMAND` |
+| Dev stack script | `./dev-stack.sh` |
+| Compose file | `docker-compose.yml` |
+| Test command | `pytest tests/ -q` |
+| Lint | `ruff check .` |
 | Scope check | `bash .ai/scripts/touch-scope-verify.sh` (when Agent OS scripts present) |
 | Blast radius | `bash .ai/scripts/blast-radius-check.sh` (when Agent OS scripts present) |
-| Type check | `REPLACE:TYPECHECK_COMMAND` |
+| Type check | `pyright .` |
 
 ---
 
@@ -52,8 +58,8 @@ See `.ai/standards/*-DIRECTORY_MAP.md` after customization.
 
 | Item | Status |
 |------|--------|
-| Platform | REPLACE:CI_PLATFORM (e.g. GitHub Actions) |
-| Deploy targets | staging / production |
+| Platform | GitHub Actions |
+| Deploy targets | Self-hosted (Docker Compose) |
 
 ---
 
@@ -61,7 +67,11 @@ See `.ai/standards/*-DIRECTORY_MAP.md` after customization.
 
 | ID | Topic | Owner |
 |----|-------|-------|
-| U1 | | |
+| U1 | Max RFP page count for processing | eng |
+| U2 | Embedding + chunking strategy | eng |
+| U3 | Fine-tuning vs RAG for domain terminology | eng |
+| U4 | Acceptable per-RFP processing cost | product |
+| U5 | File size/page limit for uploader | product |
 
 ---
 
